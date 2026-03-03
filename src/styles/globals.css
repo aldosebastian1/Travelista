@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+@theme {
+  /* === Warna Utama === */
+  --color-primary: #1E90FF;
+  --color-primary-hover: #1C74D4;
+  --color-primary-dark: #1363C3;
+
+  /* === Navy / Deep Blue (Header, Footer) === */
+  --color-navy: #0F2A66;
+  --color-navy-hover: #0A2040;
+  --color-navy-light: #1A3A80;
+
+  /* === Light Blue (Latar Sekunder) === */
+  --color-blue-light: #E6F0FF;
+  --color-blue-lighter: #F1F7FF;
+
+  /* === Aksen Hangat (CTA Konversi) === */
+  --color-coral: #FF7A59;
+  --color-coral-hover: #f06548;
+  --color-sunny: #FFC857;
+
+  /* === Teks === */
+  --color-text-main: #0F1B2A;
+  --color-text-body: #1F2A37;
+  --color-text-secondary: #4B5563;
+
+  /* === Netral === */
+  --color-border: #E5E7EB;
+
+  /* === Cinematic Font Stack ===
+   * Cinzel      → Hero H1 (display / cinematic)
+   * Poppins     → H2–H4, UI labels, CTAs
+   * Inter       → Body text, captions, inputs
+  */
+  --font-cinzel: var(--font-cinzel), "Cinzel", "Playfair Display", Georgia, serif;
+  --font-poppins: var(--font-poppins), "Poppins", "Montserrat", sans-serif;
+  --font-inter: var(--font-inter), "Inter", "Source Sans Pro", Arial, sans-serif;
+}
+
+/* =============================================
+   BASE LAYER
+   ============================================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-inter), "Inter", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #1F2A37;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Cinematic heading hierarchy */
+  h1 {
+    font-family: var(--font-cinzel), "Cinzel", Georgia, serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    color: #0F1B2A;
+  }
+
+  h2 {
+    font-family: var(--font-poppins), "Poppins", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: #0F1B2A;
+  }
+
+  h3 {
+    font-family: var(--font-poppins), "Poppins", sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: #1F2A37;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-poppins), "Poppins", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #1F2A37;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid #1E90FF;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* =============================================
+   KEYFRAME ANIMATIONS
+   ============================================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollDot {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(10px);
+    opacity: 0.3;
+  }
+}
+
+/* =============================================
+   UTILITY LAYER
+   ============================================= */
+@layer utilities {
+
+  /* Gradient backgrounds */
+  .bg-gradient-navy {
+    background: linear-gradient(135deg, #0F2A66 0%, #1E90FF 100%);
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(180deg,
+        rgba(15, 42, 102, 0.72) 0%,
+        rgba(15, 42, 102, 0.40) 40%,
+        rgba(30, 144, 255, 0.15) 80%,
+        transparent 100%);
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(180deg, transparent 45%, rgba(15, 42, 102, 0.88) 100%);
+  }
+
+  /* Shadows */
+  .shadow-blue-glow {
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.18);
+  }
+
+  .shadow-blue-glow-lg {
+    box-shadow: 0 12px 40px rgba(30, 144, 255, 0.24);
+  }
+
+  .shadow-coral-glow {
+    box-shadow: 0 6px 20px rgba(255, 122, 89, 0.28);
+  }
+
+  .shadow-card {
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.12);
+  }
+
+  /* Focus ring */
+  .focus-ring-blue:focus {
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.30);
+    outline: none;
+  }
+
+  /* Hover lift — for cards and buttons */
+  .hover-lift {
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(30, 144, 255, 0.22);
+  }
+
+  /* Cinematic text shadow (use over hero images) */
+  .text-shadow-cinematic {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Grain texture overlay */
+  .grain-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Scroll indicator dot animation */
+  .scroll-dot {
+    animation: scrollDot 1.8s ease-in-out infinite;
+  }
+
+  /* Fade-up entrance animations */
+  .fade-up {
+    animation: fadeUp 0.55s ease both;
+  }
+
+  .fade-up-delay-1 {
+    animation-delay: 0.1s;
+  }
+
+  .fade-up-delay-2 {
+    animation-delay: 0.2s;
+  }
+
+  .fade-up-delay-3 {
+    animation-delay: 0.35s;
+  }
+
+  /* Font family utilities */
+  .font-cinzel {
+    font-family: var(--font-cinzel), "Cinzel", Georgia, serif;
+  }
+
+  .font-poppins {
+    font-family: var(--font-poppins), "Poppins", sans-serif;
+  }
+
+  .font-inter {
+    font-family: var(--font-inter), "Inter", Arial, sans-serif;
+  }
+}
