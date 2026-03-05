@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Compass, Menu, User, X, Map } from "lucide-react";
+import { Compass, Menu, X, Map } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -18,7 +18,7 @@ export default function Navbar() {
     const pathname = usePathname();
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
+        const handleScroll = () => setScrolled(window.scrollY > 40);
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
@@ -26,47 +26,58 @@ export default function Navbar() {
     return (
         <nav
             aria-label="Navigasi utama"
-            style={{ backgroundColor: scrolled ? "#0F2A66" : "#0F2A66" }}
-            className="fixed w-full z-50 transition-all duration-300"
+            className={`fixed w-full z-50 transition-all duration-700 ${scrolled
+                ? "glass-dark py-4"
+                : "bg-transparent py-6"
+                }`}
         >
-            <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                {/* Logo */}
+            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+                {/* Logo — Luxury Serif */}
                 <Link
                     href="/"
-                    className="flex items-center gap-2.5 group focus-ring-blue rounded-xl"
+                    className="flex items-center gap-3 group focus-ring-blue"
                     aria-label="Travelista — kembali ke beranda"
                 >
-                    <div
-                        className="p-2 rounded-xl transition-all duration-200 group-hover:scale-110"
-                        style={{ backgroundColor: "#1E90FF" }}
-                        aria-hidden="true"
+                    <Compass
+                        className="text-blue transition-transform duration-700 group-hover:scale-105"
+                        size={28}
+                        strokeWidth={1.5}
+                    />
+                    <span
+                        className="text-xl md:text-2xl font-light tracking-[0.2em] text-white transition-opacity duration-500 group-hover:opacity-80"
+                        style={{ fontFamily: "var(--font-cinzel)" }}
                     >
-                        <Compass className="text-white" size={22} />
-                    </div>
-                    <span className="font-poppins text-xl font-bold text-white tracking-tight">
-                        Travelista
+                        TRAVELISTA
                     </span>
                 </Link>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex gap-8 items-center">
+                <div className="hidden md:flex gap-10 items-center">
                     {navLinks.map(({ href, label }) => {
                         const isActive = pathname === href || pathname.startsWith(href + "/");
                         return (
                             <Link
                                 key={label}
                                 href={href}
-                                className="relative text-sm font-medium transition-colors duration-200 focus-ring-blue rounded-md px-1 py-0.5"
+                                className="relative text-[0.8rem] font-medium tracking-[0.15em] uppercase transition-all duration-500 group hover:text-white"
                                 style={{
-                                    color: isActive ? "#1E90FF" : "rgba(255,255,255,0.85)",
+                                    color: isActive ? "#1D4ED8" : "rgba(255,255,255,0.85)",
+                                    fontFamily: "var(--font-poppins)",
                                 }}
                                 aria-current={isActive ? "page" : undefined}
                             >
                                 {label}
-                                {isActive && (
+                                {/* Subtle gold underline on hover/active */}
+                                <span
+                                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[1px] bg-blue transition-all duration-500 ease-out"
+                                    style={{
+                                        width: isActive ? "20px" : "0px",
+                                        opacity: isActive ? 1 : 0,
+                                    }}
+                                />
+                                {!isActive && (
                                     <span
-                                        className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full"
-                                        style={{ backgroundColor: "#1E90FF" }}
+                                        className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[1px] bg-blue w-0 opacity-0 group-hover:w-[20px] group-hover:opacity-100 transition-all duration-500 ease-out"
                                     />
                                 )}
                             </Link>
@@ -75,18 +86,12 @@ export default function Navbar() {
                 </div>
 
                 {/* CTA + Mobile Toggle */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-4">
                     <Link
                         href="/destination"
-                        className="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-white px-5 py-2.5 rounded-full transition-all duration-200 hover:scale-105"
-                        style={{
-                            backgroundColor: "#1E90FF",
-                            boxShadow: "0 4px 14px rgba(30,144,255,0.40)",
-                        }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1C74D4")}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#1E90FF")}
+                        className="btn-primary hidden md:inline-flex px-6 py-2.5 text-xs"
+                        aria-label="Rencanakan perjalanan"
                     >
-                        <Map size={15} aria-hidden="true" />
                         Rencanakan Perjalanan
                     </Link>
 
@@ -94,39 +99,43 @@ export default function Navbar() {
                         aria-label={mobileOpen ? "Tutup menu" : "Buka menu"}
                         aria-expanded={mobileOpen}
                         aria-controls="mobile-menu"
-                        className="md:hidden text-white p-2 rounded-xl transition-colors focus-ring-blue"
-                        style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
+                        className="md:hidden text-white p-2 transition-all duration-500 hover:text-blue"
                         onClick={() => setMobileOpen((prev) => !prev)}
                     >
                         {mobileOpen ? (
-                            <X size={24} aria-hidden="true" />
+                            <X size={28} strokeWidth={1.5} aria-hidden="true" />
                         ) : (
-                            <Menu size={24} aria-hidden="true" />
+                            <Menu size={28} strokeWidth={1.5} aria-hidden="true" />
                         )}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu — minimal fade down */}
             {mobileOpen && (
                 <div
                     id="mobile-menu"
                     role="dialog"
                     aria-modal="true"
                     aria-label="Menu navigasi"
-                    className="md:hidden px-6 pb-6 pt-4 space-y-2"
-                    style={{ backgroundColor: "#0A2040", borderTop: "1px solid rgba(255,255,255,0.1)" }}
+                    className="md:hidden absolute top-full left-0 w-full px-6 pb-8 pt-4 space-y-4 animate-fade-down"
+                    style={{
+                        backgroundColor: "rgba(10, 10, 10, 0.98)",
+                        backdropFilter: "blur(20px)",
+                        borderBottom: "1px solid rgba(255,255,255,0.05)",
+                    }}
                 >
-                    {navLinks.map(({ href, label }) => {
+                    {navLinks.map(({ href, label }, i) => {
                         const isActive = pathname === href || pathname.startsWith(href + "/");
                         return (
                             <Link
                                 key={label}
                                 href={href}
-                                className="block py-3 px-4 rounded-xl font-medium text-sm transition-colors"
+                                className="block py-3 text-sm tracking-[0.1em] uppercase transition-all duration-500 hover:text-white"
                                 style={{
-                                    backgroundColor: isActive ? "rgba(30,144,255,0.2)" : "transparent",
-                                    color: isActive ? "#1E90FF" : "rgba(255,255,255,0.8)",
+                                    color: isActive ? "#1D4ED8" : "rgba(255,255,255,0.8)",
+                                    fontFamily: "var(--font-poppins)",
+                                    borderBottom: "1px solid rgba(255,255,255,0.03)",
                                 }}
                                 onClick={() => setMobileOpen(false)}
                                 aria-current={isActive ? "page" : undefined}
@@ -135,14 +144,12 @@ export default function Navbar() {
                             </Link>
                         );
                     })}
-                    <div className="pt-3 border-t" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
+                    <div className="pt-6">
                         <Link
                             href="/destination"
-                            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-semibold text-sm text-white transition-all"
-                            style={{ backgroundColor: "#1E90FF" }}
+                            className="btn-primary flex items-center justify-center w-full"
                             onClick={() => setMobileOpen(false)}
                         >
-                            <Map size={16} aria-hidden="true" />
                             Rencanakan Perjalanan
                         </Link>
                     </div>

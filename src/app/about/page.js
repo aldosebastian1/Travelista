@@ -3,159 +3,180 @@ import Link from "next/link";
 import { Shield, Award, Globe, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
 
 export const metadata = {
-    title: "Tentang Kami",
-    description: "Kenali lebih dekat Travelista — agen perjalanan premium Indonesia yang telah melayani lebih dari 10.000 wisatawan sejak 2015.",
+    title: "Filosofi Kami | Travelista",
+    description: "Kenali lebih dekat Travelista — biro perjalanan premium Indonesia yang mengkurasi eksklusivitas sejak 2015.",
 };
 
 const teamMembers = [
     {
         name: "Arya Kusuma",
-        role: "CEO & Co-Founder",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
-        bio: "10+ tahun di industri pariwisata Indonesia",
+        role: "CEO & Travel Designer",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
+        bio: "Mengkurasi kemewahan di 5 Benua",
     },
     {
         name: "Sinta Rahayu",
-        role: "Head of Operations",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80",
-        bio: "Ahli logistik perjalanan & partner lokal",
+        role: "Head of Concierge",
+        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80",
+        bio: "Dedikasi pada detail & privasi",
     },
     {
         name: "Bagas Wicaksono",
-        role: "Head of Destinations",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
-        bio: "Telah mengeksplor 40+ destinasi Indonesia",
+        role: "Expedition Director",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+        bio: "Spesialisasi rute tersembunyi",
     },
     {
         name: "Laila Putri",
-        role: "Customer Experience Lead",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
-        bio: "Berdedikasi pada kepuasan pelanggan 100%",
+        role: "Client Relations",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+        bio: "Melayani dengan standar bintang 5",
     },
 ];
 
 const values = [
-    { Icon: Shield, title: "Terpercaya & Transparan", desc: "Harga jelas, tidak ada biaya tersembunyi. Kami jujur di setiap langkah perjalanan Anda." },
-    { Icon: Award, title: "Kualitas Premium", desc: "Setiap paket dikurasi dengan standar tertinggi — akomodasi, transportasi, dan layanan." },
-    { Icon: Globe, title: "Pengalaman Global", desc: "Partner lokal di 50+ destinasi memastikan pengalaman otentik di setiap perjalanan." },
-    { Icon: HeartHandshake, title: "Layanan Personal", desc: "Tim kami siap 24/7 untuk memastikan perjalanan Anda berjalan lancar dari awal hingga akhir." },
+    { Icon: Shield, title: "Privasi Absolut", desc: "Kerahasiaan data dan jadwal perjalanan Anda adalah prioritas tak tertawar kami." },
+    { Icon: Award, title: "Kualitas Premium", desc: "Akses ke properti eksklusif yang tidak tersedia untuk publik umum." },
+    { Icon: Globe, title: "Jaringan Global", desc: "Relasi intim dengan partner lokal terbaik di destinasi paling prestisius di dunia." },
+    { Icon: HeartHandshake, title: "Layanan White-Glove", desc: "Asisten pribadi siaga 24/7 untuk memenuhi setiap ekspektasi Anda selama perjalanan." },
 ];
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-slate-50">
-            {/* Hero */}
-            <div className="relative h-[60vh] min-h-[400px] bg-slate-900 overflow-hidden">
+        <div className="min-h-screen bg-slate-50 pt-20">
+            {/* Hero — Cinematic Noir */}
+            <div className="relative h-[70vh] min-h-[500px] bg-[#0A0A0A] overflow-hidden flex items-center justify-center">
                 <Image
-                    src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1400&q=80"
+                    src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=2000&q=90"
                     alt="Tim Travelista dalam perjalanan"
                     fill
                     priority
-                    className="object-cover opacity-50"
+                    className="object-cover opacity-40 scale-105"
                     sizes="100vw"
+                    style={{ filter: "grayscale(20%)" }}
                 />
-                <div className="absolute inset-0 flex items-center justify-center text-center px-6 mt-16">
-                    <div>
-                        <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white mb-4 tracking-tight">
-                            Tentang Travelista
-                        </h1>
-                        <p className="text-slate-200 text-lg max-w-2xl mx-auto">
-                            Kami hadir sejak 2015 dengan satu misi: menghadirkan perjalanan yang tak terlupakan bagi setiap orang Indonesia.
-                        </p>
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" aria-hidden="true" />
+
+                <div className="relative z-10 text-center px-6 mt-16 max-w-4xl mx-auto">
+                    <span className="section-label text-blue">Filosofi Travelista</span>
+                    <h1
+                        className="text-4xl md:text-5xl lg:text-7xl font-light text-white mb-8"
+                        style={{ fontFamily: "var(--font-cinzel)" }}
+                    >
+                        Redefinisi Kemewahan
+                    </h1>
+                    <p className="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
+                        Kami bukan sekadar agen perjalanan. Kami adalah arsitek untuk momen-momen paling eksklusif dan tak terlupakan dalam hidup Anda.
+                    </p>
                 </div>
             </div>
 
             {/* Story */}
-            <div className="max-w-7xl mx-auto px-6 py-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-20">
+            <div className="max-w-7xl mx-auto px-6 py-32">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
                     <div>
-                        <h2 className="text-3xl font-playfair font-bold text-slate-900 mb-6">Cerita Kami</h2>
-                        <p className="text-slate-600 leading-relaxed mb-4">
-                            Travelista lahir dari rasa cinta mendalam terhadap keindahan Indonesia. Berawal dari garasi kecil di Jakarta pada 2015, kami kini telah melayani lebih dari <strong>10.000 wisatawan</strong> ke seluruh penjuru nusantara dan dunia.
+                        <span className="section-label">Warisan</span>
+                        <h2
+                            className="text-4xl md:text-5xl font-light text-slate-900 mb-10"
+                            style={{ fontFamily: "var(--font-cinzel)" }}
+                        >
+                            Seni Perjalanan
+                        </h2>
+                        <p className="text-slate-600 leading-relaxed mb-6 font-light text-lg">
+                            Travelista lahir dari keyakinan bahwa kemewahan sejati bukanlah tentang harga, melainkan eksklusivitas, privasi, dan ketenangan pikiran. Sejak 2015, kami telah melayani klien di seluruh dunia.
                         </p>
-                        <p className="text-slate-600 leading-relaxed mb-4">
-                            Kami percaya bahwa setiap perjalanan adalah kesempatan untuk tumbuh, belajar, dan menciptakan kenangan abadi. Itulah mengapa kami merancang setiap paket dengan penuh perhatian — bukan sekadar itinerary, tapi sebuah pengalaman hidup.
-                        </p>
-                        <p className="text-slate-600 leading-relaxed">
-                            Dengan tim berpengalaman dan jaringan partner lokal di 50+ destinasi, kami siap mewujudkan liburan impian Anda dengan standar kualitas tertinggi.
+                        <p className="text-slate-600 leading-relaxed mb-6 font-light text-lg">
+                            Setiap rancang bangun (itinerary) yang kami susun diperlakukan layaknya karya seni — dipersonalisasi hingga detail terkecil untuk mencerminkan selera dan aspirasi Anda secara sempurna.
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-6">
                         {[
-                            { value: "2015", label: "Tahun Berdiri" },
-                            { value: "10.000+", label: "Pelanggan Puas" },
-                            { value: "50+", label: "Destinasi" },
-                            { value: "4.9★", label: "Rating Rata-rata" },
+                            { value: "2015", label: "Est." },
+                            { value: "Bintang 5", label: "Standar Layanan" },
+                            { value: "100+", label: "Destinasi Eksklusif" },
+                            { value: "24/7", label: "VIP Concierge" },
                         ].map(({ value, label }) => (
-                            <div key={label} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm text-center">
-                                <p className="text-3xl font-playfair font-bold text-sky-600 mb-1">{value}</p>
-                                <p className="text-slate-500 text-sm">{label}</p>
+                            <div key={label} className="bg-white p-8 border border-slate-200 text-center">
+                                <p className="text-3xl font-light text-blue mb-2" style={{ fontFamily: "var(--font-cinzel)" }}>{value}</p>
+                                <p className="text-slate-500 text-[0.75rem] uppercase tracking-widest font-medium">{label}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* Values */}
-                <div className="mb-20">
-                    <h2 className="text-3xl font-playfair font-bold text-slate-900 text-center mb-12">Nilai-nilai Kami</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="mb-32">
+                    <div className="text-center mb-16">
+                        <span className="section-label">Pilar</span>
+                        <h2
+                            className="text-4xl md:text-5xl font-light text-slate-900"
+                            style={{ fontFamily: "var(--font-cinzel)" }}
+                        >
+                            Komitmen Kami
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {values.map(({ Icon, title, desc }) => (
-                            <div key={title} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center hover:shadow-md transition-shadow">
-                                <div className="w-14 h-14 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                    <Icon size={28} aria-hidden="true" />
-                                </div>
-                                <h3 className="font-playfair font-bold text-slate-900 mb-2">{title}</h3>
-                                <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
+                            <div key={title} className="bg-white p-10 border border-slate-200 transition-all duration-500 hover:border-blue group">
+                                <Icon size={28} className="text-blue mb-6 transition-transform duration-500 group-hover:scale-110" strokeWidth={1} aria-hidden="true" />
+                                <h3 className="font-light text-xl text-slate-900 mb-4" style={{ fontFamily: "var(--font-cinzel)" }}>{title}</h3>
+                                <p className="text-slate-500 text-[0.9rem] leading-relaxed font-light">{desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* Team */}
-                <div className="mb-20">
-                    <h2 className="text-3xl font-playfair font-bold text-slate-900 text-center mb-12">Tim Kami</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="mb-32">
+                    <div className="text-center mb-16">
+                        <span className="section-label">Ekspertise</span>
+                        <h2
+                            className="text-4xl md:text-5xl font-light text-slate-900"
+                            style={{ fontFamily: "var(--font-cinzel)" }}
+                        >
+                            Travel Designers
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                         {teamMembers.map((member) => (
                             <div key={member.name} className="text-center group">
-                                <div className="relative w-28 h-28 rounded-full overflow-hidden mx-auto mb-4 bg-slate-100 ring-4 ring-slate-100 group-hover:ring-sky-200 transition-all">
+                                <div className="relative w-48 h-48 mx-auto mb-6 bg-slate-100 overflow-hidden">
                                     <Image
                                         src={member.image}
                                         alt={`Foto ${member.name}`}
                                         fill
-                                        className="object-cover"
-                                        sizes="112px"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        sizes="(max-width: 768px) 100vw, 192px"
+                                        style={{ filter: "grayscale(40%) contrast(1.1)" }}
                                     />
                                 </div>
-                                <h3 className="font-bold text-slate-900">{member.name}</h3>
-                                <p className="text-sky-500 text-sm font-medium">{member.role}</p>
-                                <p className="text-slate-400 text-xs mt-1">{member.bio}</p>
+                                <h3 className="font-light text-2xl text-slate-900 mb-1" style={{ fontFamily: "var(--font-cinzel)" }}>{member.name}</h3>
+                                <p className="text-blue text-[0.8rem] uppercase tracking-widest font-medium mb-3">{member.role}</p>
+                                <p className="text-slate-500 text-sm font-light italic">{member.bio}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* CTA */}
-                <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-12 text-center">
-                    <MapPin size={40} className="text-sky-400 mx-auto mb-4" aria-hidden="true" />
-                    <h2 className="text-3xl font-playfair font-bold text-white mb-4">Mulai Perjalananmu Hari Ini</h2>
-                    <p className="text-slate-400 mb-8 max-w-xl mx-auto">
-                        Hubungi kami atau temukan langsung paket yang cocok untuk Anda.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                            href="/destination"
-                            className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-8 py-4 rounded-xl font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500"
+                <div className="bg-[#0A0A0A] p-20 text-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-blue/5 blur-3xl" aria-hidden="true" />
+                    <div className="relative z-10">
+                        <span className="section-label text-blue">Konsultasi Pribadi</span>
+                        <h2
+                            className="text-4xl md:text-5xl font-light text-white mb-8"
+                            style={{ fontFamily: "var(--font-cinzel)" }}
                         >
-                            Lihat Destinasi
-                            <ArrowRight size={18} aria-hidden="true" />
-                        </Link>
-                        <a
-                            href="mailto:support@travelista.id"
-                            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-semibold transition-colors"
-                        >
-                            Hubungi Kami
-                        </a>
+                            Diskusikan Visi Perjalanan Anda
+                        </h2>
+                        <div className="flex justify-center mt-12">
+                            <a
+                                href="mailto:concierge@travelista.id"
+                                className="btn-outline text-white border-white/30 hover:border-blue hover:text-blue"
+                            >
+                                Hubungi Kami
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

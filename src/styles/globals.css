@@ -1,226 +1,160 @@
+/* ======================================================
+   TRAVELISTA — GLOBALS.CSS (LUXURY EDITION)
+   Design system root: tokens, base, layer imports
+   ====================================================== */
+
 @import "tailwindcss";
+@import "./css/animations.css";
+@import "./css/components.css";
 
+/* ======================================================
+   DESIGN TOKENS (@theme)
+   ====================================================== */
 @theme {
-  /* === Warna Utama === */
-  --color-primary: #1E90FF;
-  --color-primary-hover: #1C74D4;
-  --color-primary-dark: #1363C3;
 
-  /* === Navy / Deep Blue (Header, Footer) === */
-  --color-navy: #0F2A66;
-  --color-navy-hover: #0A2040;
-  --color-navy-light: #1A3A80;
+  /* === Primary Luxury Brand Colors === */
+  --color-blue: #1D4ED8;
+  --color-blue-hover: #1E40AF;
+  --color-blue-light: #DBEAFE;
 
-  /* === Light Blue (Latar Sekunder) === */
-  --color-blue-light: #E6F0FF;
-  --color-blue-lighter: #F1F7FF;
+  /* === Deep Noir / Dark Backgrounds === */
+  --color-noir: #0A0A0A;
+  --color-noir-light: #121212;
+  --color-noir-lighter: #1A1A1A;
 
-  /* === Aksen Hangat (CTA Konversi) === */
-  --color-coral: #FF7A59;
-  --color-coral-hover: #f06548;
-  --color-sunny: #FFC857;
+  /* === Slate / Crisp Whites === */
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
 
-  /* === Teks === */
+  /* === Text Hierarchy === */
   --color-text-main: #0F1B2A;
   --color-text-body: #1F2A37;
   --color-text-secondary: #4B5563;
+  --color-text-muted: #9CA3AF;
+  --color-text-inverse: #FFFFFF;
 
-  /* === Netral === */
-  --color-border: #E5E7EB;
+  /* === Neutral / Border === */
+  --color-border: #EAEAEA;
+  --color-border-dark: rgba(255, 255, 255, 0.08);
 
-  /* === Cinematic Font Stack ===
-   * Cinzel      → Hero H1 (display / cinematic)
-   * Poppins     → H2–H4, UI labels, CTAs
-   * Inter       → Body text, captions, inputs
-  */
-  --font-cinzel: var(--font-cinzel), "Cinzel", "Playfair Display", Georgia, serif;
-  --font-poppins: var(--font-poppins), "Poppins", "Montserrat", sans-serif;
-  --font-inter: var(--font-inter), "Inter", "Source Sans Pro", Arial, sans-serif;
+  /* === Luxury Gradients === */
+  --gradient-noir: linear-gradient(180deg, #0A0A0A 0%, #121212 100%);
+  --gradient-blue: linear-gradient(135deg, #1D4ED8 0%, #DBEAFE 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.50) 50%, rgba(10, 10, 10, 0.95) 100%);
+  --gradient-card: linear-gradient(180deg, transparent 50%, rgba(10, 10, 10, 0.92) 100%);
+
+  /* === Elegant Shadow Tokens (Soft, diffused) === */
+  --shadow-elegant-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-elegant-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-elegant-lg: 0 16px 40px rgba(0, 0, 0, 0.08);
+  --shadow-blue-glow: 0 8px 32px rgba(29, 78, 216, 0.15);
+  /* Very subtle */
+
+  /* === Custom Easing Curves (Smooth, deliberate) === */
+  --ease-cinematic: cubic-bezier(.22, .68, 0, 1.2);
+  --ease-smooth: cubic-bezier(.4, 0, .2, 1);
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* === Cinematic Font Stack === */
+  --font-cinzel: var(--font-cinzel), "Cinzel", Georgia, serif;
+  --font-poppins: var(--font-poppins), "Poppins", sans-serif;
+  --font-inter: var(--font-inter), "Inter", sans-serif;
+
+  /* === Spacing / Radius Tokens === */
+  --radius-card: 8px;
+  /* Sharper corners for luxury feel */
+  --radius-pill: 9999px;
+  --radius-input: 8px;
+  --radius-btn: 8px;
 }
 
-/* =============================================
+/* ======================================================
    BASE LAYER
-   ============================================= */
+   ====================================================== */
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
     font-family: var(--font-inter), "Inter", Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.75;
-    color: #1F2A37;
-    background-color: #ffffff;
+    font-size: 16px;
+    /* Slightly smaller base for elegance */
+    line-height: 1.8;
+    color: #1A1A1A;
+    background-color: #FAFAFA;
+    /* Off-white luxury base */
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Cinematic heading hierarchy */
+  /* Cinematic heading hierarchy (More letter spacing) */
   h1 {
     font-family: var(--font-cinzel), "Cinzel", Georgia, serif;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-weight: 400;
+    /* Lighter weight for luxury */
+    letter-spacing: 0.08em;
     line-height: 1.2;
-    font-size: clamp(2.2rem, 5vw, 4.5rem);
-    color: #0F1B2A;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    color: #0A0A0A;
   }
 
   h2 {
-    font-family: var(--font-poppins), "Poppins", sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-family: var(--font-cinzel), "Cinzel", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
     line-height: 1.3;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    color: #0F1B2A;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    color: #0A0A0A;
   }
 
   h3 {
     font-family: var(--font-poppins), "Poppins", sans-serif;
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: 0.02em;
     line-height: 1.4;
-    font-size: clamp(1.1rem, 2vw, 1.5rem);
-    color: #1F2A37;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: #1A1A1A;
   }
 
   h4,
   h5,
   h6 {
     font-family: var(--font-poppins), "Poppins", sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: #1F2A37;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #4A4A4A;
   }
 
+  /* Selection highlight */
+  ::selection {
+    background: #1D4ED8;
+    color: #0A0A0A;
+  }
+
+  /* Focus visible — keyboard only */
   a:focus-visible,
   button:focus-visible {
-    outline: 3px solid #1E90FF;
-    outline-offset: 3px;
-    border-radius: 6px;
+    outline: 1px solid #1D4ED8;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  /* Smooth image rendering */
+  img {
+    image-rendering: -webkit-optimize-contrast;
   }
 }
 
-/* =============================================
-   KEYFRAME ANIMATIONS
-   ============================================= */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scrollDot {
-
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  50% {
-    transform: translateY(10px);
-    opacity: 0.3;
-  }
-}
-
-/* =============================================
+/* ======================================================
    UTILITY LAYER
-   ============================================= */
+   ====================================================== */
 @layer utilities {
-
-  /* Gradient backgrounds */
-  .bg-gradient-navy {
-    background: linear-gradient(135deg, #0F2A66 0%, #1E90FF 100%);
-  }
-
-  .bg-gradient-hero {
-    background: linear-gradient(180deg,
-        rgba(15, 42, 102, 0.72) 0%,
-        rgba(15, 42, 102, 0.40) 40%,
-        rgba(30, 144, 255, 0.15) 80%,
-        transparent 100%);
-  }
-
-  .bg-gradient-card {
-    background: linear-gradient(180deg, transparent 45%, rgba(15, 42, 102, 0.88) 100%);
-  }
-
-  /* Shadows */
-  .shadow-blue-glow {
-    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.18);
-  }
-
-  .shadow-blue-glow-lg {
-    box-shadow: 0 12px 40px rgba(30, 144, 255, 0.24);
-  }
-
-  .shadow-coral-glow {
-    box-shadow: 0 6px 20px rgba(255, 122, 89, 0.28);
-  }
-
-  .shadow-card {
-    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.12);
-  }
-
-  /* Focus ring */
-  .focus-ring-blue:focus {
-    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.30);
-    outline: none;
-  }
-
-  /* Hover lift — for cards and buttons */
-  .hover-lift {
-    transition: transform 180ms ease, box-shadow 180ms ease;
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(30, 144, 255, 0.22);
-  }
-
-  /* Cinematic text shadow (use over hero images) */
-  .text-shadow-cinematic {
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Grain texture overlay */
-  .grain-overlay::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  /* Scroll indicator dot animation */
-  .scroll-dot {
-    animation: scrollDot 1.8s ease-in-out infinite;
-  }
-
-  /* Fade-up entrance animations */
-  .fade-up {
-    animation: fadeUp 0.55s ease both;
-  }
-
-  .fade-up-delay-1 {
-    animation-delay: 0.1s;
-  }
-
-  .fade-up-delay-2 {
-    animation-delay: 0.2s;
-  }
-
-  .fade-up-delay-3 {
-    animation-delay: 0.35s;
-  }
-
-  /* Font family utilities */
   .font-cinzel {
     font-family: var(--font-cinzel), "Cinzel", Georgia, serif;
   }

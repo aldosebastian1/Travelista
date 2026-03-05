@@ -121,7 +121,7 @@ export default async function DestinationDetail({ params }) {
                                 <MapPin size={20} className="mr-2" aria-hidden="true" />
                                 <span className="text-lg">{pkg.location}</span>
                             </div>
-                            <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white mb-2 tracking-tight">
+                            <h1 className="text-4xl md:text-6xl font-light text-white mb-2 tracking-tight" style={{ fontFamily: "var(--font-cinzel)" }}>
                                 {pkg.name}
                             </h1>
                         </div>
@@ -137,7 +137,7 @@ export default async function DestinationDetail({ params }) {
             <div className="max-w-7xl mx-auto px-6 md:px-20 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-2 space-y-12">
                     <section aria-labelledby="about-heading">
-                        <h2 id="about-heading" className="text-2xl font-playfair font-bold text-slate-900 mb-6">
+                        <h2 id="about-heading" className="text-2xl font-light text-slate-900 mb-6" style={{ fontFamily: "var(--font-cinzel)" }}>
                             Tentang Perjalanan Ini
                         </h2>
                         <p className="text-slate-600 leading-relaxed text-lg mb-8">
@@ -161,7 +161,7 @@ export default async function DestinationDetail({ params }) {
                     </section>
 
                     <section aria-labelledby="facilities-heading">
-                        <h2 id="facilities-heading" className="text-2xl font-playfair font-bold text-slate-900 mb-6">
+                        <h2 id="facilities-heading" className="text-2xl font-light text-slate-900 mb-6" style={{ fontFamily: "var(--font-cinzel)" }}>
                             Fasilitas Termasuk
                         </h2>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -178,9 +178,9 @@ export default async function DestinationDetail({ params }) {
                 {/* Booking Sidebar — Client Component */}
                 <aside className="lg:col-span-1" aria-label="Form pemesanan">
                     <div className="bg-white p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 sticky top-32">
-                        <h2 className="text-xl font-playfair font-bold text-slate-900 mb-6">Pesan Sekarang</h2>
+                        <h2 className="text-xl font-light text-slate-900 mb-6" style={{ fontFamily: "var(--font-cinzel)" }}>Pesan Sekarang</h2>
                         <BookingForm packageName={pkg.name} packagePrice={pkg.price} />
-                        <p className="text-center text-xs text-slate-400 mt-4 leading-relaxed">
+                        <p className="text-center text-xs text-slate-500 mt-4 leading-relaxed">
                             *Tidak ada biaya tambahan. Tim kami akan menghubungi Anda untuk konfirmasi.
                         </p>
                     </div>

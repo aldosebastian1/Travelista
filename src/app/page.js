@@ -6,45 +6,40 @@ import { ArrowRight } from "lucide-react";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
 
-export const metadata = {
-    title: "Travelista | Temukan Destinasi Impianmu",
-    description:
-        "Eksplorasi destinasi eksklusif dengan harga terbaik. Mulai petualangan alam, budaya, dan relaksasi Anda hari ini.",
-    alternates: { canonical: BASE_URL },
-};
-
 export default function Home() {
     return (
-        <div>
+        <div className="bg-slate-50">
             <Hero />
 
             {/* Destinasi Populer */}
             <section
                 id="destinasi"
                 aria-labelledby="destinations-heading"
-                className="py-20 px-6 max-w-7xl mx-auto"
+                className="py-32 px-6 max-w-7xl mx-auto"
             >
-                <div className="text-center mb-16">
+                <div className="flex flex-col items-center text-center mb-24">
+                    <span className="section-label">Kurasi Perjalanan</span>
                     <h2
                         id="destinations-heading"
-                        className="text-4xl md:text-5xl font-playfair font-bold text-slate-900 mb-4 tracking-tight"
+                        className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-6"
+                        style={{ fontFamily: "var(--font-cinzel)" }}
                     >
-                        Destinasi Populer
+                        Destinasi Premier
                     </h2>
-                    <p className="text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Temukan berbagai paket perjalanan eksklusif dan mulailah petualangan tak terlupakan bersama kami.
+                    <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed font-light">
+                        Temukan koleksi perjalanan eksklusif yang dirancang untuk memberikan pengalaman tak tertandingi di destinasi paling prestisius di dunia.
                     </p>
                 </div>
 
                 <DestinationGrid />
 
-                <div className="text-center mt-12">
+                <div className="flex justify-center mt-20">
                     <Link
                         href="/destination"
-                        className="inline-flex items-center gap-2 border border-sky-500 text-sky-600 hover:bg-sky-500 hover:text-white px-8 py-4 rounded-xl font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-sky-500 group"
+                        className="btn-outline text-slate-900 border-slate-300 hover:border-blue hover:text-blue"
                     >
-                        Lihat Semua Destinasi
-                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                        Lihat Seluruh Kurasi
+                        <ArrowRight size={16} aria-hidden="true" />
                     </Link>
                 </div>
             </section>
@@ -52,35 +47,40 @@ export default function Home() {
             {/* Testimoni Section */}
             <TestimonialsSection />
 
-            {/* CTA Banner */}
+            {/* CTA Banner — Minimalist Luxury */}
             <section
                 aria-labelledby="cta-heading"
-                className="py-24 px-6 bg-gradient-to-br from-slate-900 to-slate-800 text-center"
+                className="py-32 px-6 bg-[#0A0A0A] text-center relative overflow-hidden"
             >
-                <div className="max-w-3xl mx-auto">
+                {/* Subtle background glow */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-full bg-gradient-to-b from-blue/5 to-transparent blur-3xl" aria-hidden="true" />
+
+                <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+                    <span className="section-label text-blue">VIP Concierge</span>
                     <h2
                         id="cta-heading"
-                        className="text-4xl md:text-5xl font-playfair font-bold text-white mb-6 tracking-tight"
+                        className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8"
+                        style={{ fontFamily: "var(--font-cinzel)" }}
                     >
-                        Siap Memulai Petualangan?
+                        Rancang Perjalanan Anda
                     </h2>
-                    <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-                        Hubungi tim kami sekarang — konsultasi gratis, tanpa kewajiban. Kami bantu wujudkan liburan impian Anda.
+                    <p className="text-slate-400 text-lg md:text-xl font-light mb-16 leading-relaxed max-w-2xl">
+                        Biarkan travel designer kami menyusun rancang bangun liburan yang dikhususkan sepenuhnya untuk preferensi Anda. Konsultasi tanpa kompromi.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <Link
                             href="/destination"
-                            className="inline-flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-8 py-4 rounded-xl font-bold transition-colors shadow-lg shadow-sky-500/20 focus:outline-none focus:ring-2 focus:ring-sky-400"
+                            className="btn-primary"
                         >
-                            Jelajahi Destinasi
+                            Mulai Perencanaan
                         </Link>
                         <a
-                            href={`https://wa.me/6283839350200?text=${encodeURIComponent("Halo Travelista! Saya ingin konsultasi paket wisata.")}`}
+                            href={`https://wa.me/6283839350200?text=${encodeURIComponent("Halo Travelista, saya ingin mengatur jadwal konsultasi VIP.")}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold transition-colors shadow-lg shadow-emerald-500/20 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                            className="btn-outline text-white border-white/30 hover:border-blue hover:text-blue"
                         >
-                            Chat WhatsApp
+                            Hubungi Travel Designer
                         </a>
                     </div>
                 </div>

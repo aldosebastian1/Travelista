@@ -1,7 +1,7 @@
 "use client";
 
 import { travelPackages } from "../constants";
-import { MapPin, ArrowRight, Clock, Star } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,137 +9,92 @@ import Link from "next/link";
 export default function DestinationGrid() {
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+        visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
     };
+
+    // Smooth, slow, elegant entrance
     const itemVariants = {
-        hidden: { y: 28, opacity: 0 },
-        visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 90, damping: 14 } },
+        hidden: { y: 20, opacity: 0 },
+        visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
     };
 
     return (
         <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, margin: "-100px" }}
         >
             {travelPackages.map((pkg) => (
                 <motion.article
                     variants={itemVariants}
                     key={pkg.id}
-                    className="group flex flex-col bg-white rounded-2xl overflow-hidden hover-lift border"
-                    style={{
-                        boxShadow: "0 6px 20px rgba(30, 144, 255, 0.12)",
-                        borderColor: "#E5E7EB",
-                        borderRadius: "16px",
-                    }}
+                    className="luxury-card group flex flex-col overflow-hidden"
                 >
-                    {/* Image */}
-                    <div className="relative h-56 overflow-hidden bg-slate-100">
+                    {/* Image — No excessive shine, just a very slow scale on hover */}
+                    <div className="relative h-64 overflow-hidden bg-slate-50">
                         <Image
                             src={pkg.image}
                             alt={`Pemandangan destinasi ${pkg.name} di ${pkg.location}`}
                             fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
-                        {/* Gradient overlay */}
+                        {/* Very subtle gradient overlay at bottom for price contrast */}
                         <div
-                            className="absolute inset-0"
-                            style={{ background: "linear-gradient(to top, rgba(15,42,102,0.6) 0%, transparent 60%)" }}
+                            className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent"
                             aria-hidden="true"
                         />
-                        {/* Category chip */}
+
+                        {/* Category and Price — overlaying the image */}
                         <div className="absolute top-4 left-4 z-10">
-                            <span
-                                className="text-xs font-semibold px-3 py-1 rounded-full"
-                                style={{
-                                    backgroundColor: "rgba(15,42,102,0.75)",
-                                    color: "#93C5FD",
-                                    backdropFilter: "blur(8px)",
-                                    border: "1px solid rgba(30,144,255,0.3)",
-                                    fontFamily: "var(--font-poppins)",
-                                }}
-                            >
-                                {pkg.category}
-                            </span>
+                            <span className="badge-category tracking-widest">{pkg.category}</span>
                         </div>
-                        {/* Price badge */}
-                        <div
-                            className="absolute top-4 right-4 z-10 px-3 py-1.5 rounded-full font-bold text-sm"
-                            style={{
-                                backgroundColor: "#FF7A59",
-                                color: "white",
-                                fontFamily: "var(--font-poppins)",
-                                boxShadow: "0 4px 12px rgba(255,122,89,0.35)",
-                            }}
-                        >
-                            {pkg.price}
+                        <div className="absolute bottom-4 left-6 z-10 flex flex-col">
+                            <span className="text-white/80 text-xs tracking-widest uppercase mb-1 font-poppins">Mulai Dari</span>
+                            <span className="badge-price leading-none">{pkg.price}</span>
                         </div>
                     </div>
 
-                    {/* Content */}
-                    <div className="p-6 flex-1 flex flex-col gap-3">
-                        {/* Location & Rating */}
-                        <div className="flex items-center justify-between text-sm">
-                            <div className="flex items-center gap-1.5" style={{ color: "#4B5563" }}>
-                                <MapPin size={13} aria-hidden="true" style={{ color: "#1E90FF" }} />
-                                <span style={{ fontFamily: "var(--font-inter)" }}>{pkg.location}</span>
-                            </div>
-                            <div className="flex items-center gap-1 font-semibold" style={{ color: "#F59E0B" }}>
-                                <Star size={13} fill="currentColor" aria-hidden="true" />
-                                <span>{pkg.rating}</span>
-                                <span style={{ color: "#9CA3AF", fontWeight: 400 }}>({pkg.reviewCount})</span>
-                            </div>
-                        </div>
+                    {/* Content — Ample padding, elegant typography */}
+                    <div className="p-8 flex-1 flex flex-col">
 
-                        {/* Title — Poppins */}
+                        {/* Title — Cinzel Serif */}
                         <h3
-                            className="text-xl font-bold leading-snug"
-                            style={{ fontFamily: "var(--font-poppins)", color: "#0F1B2A" }}
+                            className="text-2xl font-light leading-snug mb-2 transition-colors duration-500 group-hover:text-blue"
+                            style={{ fontFamily: "var(--font-cinzel)" }}
                         >
                             {pkg.name}
                         </h3>
 
-                        {/* Description */}
+                        {/* Location & Rating — Minimalist */}
+                        <div className="flex items-center justify-between text-xs tracking-widest uppercase text-slate-500 font-poppins mb-6">
+                            <span>{pkg.location}</span>
+                            <div className="flex items-center gap-1">
+                                <Star size={12} className="text-blue fill-blue" aria-hidden="true" />
+                                <span className="text-slate-700">{pkg.rating}</span>
+                            </div>
+                        </div>
+
+                        {/* Description — Inter, line-clamp-3 for uniform height */}
                         <p
-                            className="text-sm leading-relaxed flex-1 line-clamp-2"
-                            style={{ color: "#4B5563", fontFamily: "var(--font-inter)" }}
+                            className="text-[0.9rem] leading-relaxed flex-1 line-clamp-3 text-slate-600 font-inter mb-6"
                         >
                             {pkg.description}
                         </p>
 
-                        {/* Duration */}
-                        <div className="flex items-center gap-1.5 text-sm" style={{ color: "#6B7280" }}>
-                            <Clock size={13} aria-hidden="true" style={{ color: "#1E90FF" }} />
-                            <span style={{ fontFamily: "var(--font-inter)" }}>{pkg.duration}</span>
+                        {/* Action Link — Understated & elegant */}
+                        <div className="pt-4 border-t border-slate-100">
+                            <Link
+                                href={`/destination/${pkg.id}`}
+                                className="btn-card-action"
+                                aria-label={`Jelajahi ${pkg.name}`}
+                            >
+                                <span className="tracking-[0.15em] uppercase text-xs">Jelajahi Destinasi</span>
+                                <ArrowRight size={14} className="transition-transform duration-500 group-hover:translate-x-1" aria-hidden="true" />
+                            </Link>
                         </div>
-
-                        {/* CTA button */}
-                        <Link
-                            href={`/destination/${pkg.id}`}
-                            className="mt-2 w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200"
-                            style={{
-                                backgroundColor: "#E6F0FF",
-                                color: "#1E90FF",
-                                fontFamily: "var(--font-poppins)",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = "#1E90FF";
-                                e.currentTarget.style.color = "white";
-                                e.currentTarget.style.boxShadow = "0 4px 16px rgba(30,144,255,0.35)";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.backgroundColor = "#E6F0FF";
-                                e.currentTarget.style.color = "#1E90FF";
-                                e.currentTarget.style.boxShadow = "none";
-                            }}
-                            aria-label={`Lihat detail paket ${pkg.name}`}
-                        >
-                            Lihat Detail
-                            <ArrowRight size={15} aria-hidden="true" />
-                        </Link>
                     </div>
                 </motion.article>
             ))}

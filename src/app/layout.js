@@ -71,35 +71,28 @@ export const metadata = {
     },
 };
 
-// JSON-LD: TravelAgency Organization
-const organizationJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    name: "Travelista",
-    url: BASE_URL,
-    logo: `${BASE_URL}/logo.png`,
-    description: "Agen perjalanan premium Indonesia menawarkan paket wisata eksklusif.",
-    address: {
-        "@type": "PostalAddress",
-        streetAddress: "Gedung Thamrin, Lt. 12",
-        addressLocality: "Jakarta",
-        addressRegion: "DKI Jakarta",
-        addressCountry: "ID",
-    },
-    contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+62-811-2345-6789",
-        contactType: "customer service",
-        availableLanguage: ["Indonesian", "English"],
-    },
-    sameAs: [
-        "https://www.facebook.com/travelista",
-        "https://www.instagram.com/travelista",
-        "https://twitter.com/travelista",
-    ],
-};
-
 export default function RootLayout({ children }) {
+    // JSON-LD: TravelAgency Organization
+    const organizationJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        name: "Travelista",
+        url: BASE_URL,
+        description: "Agen perjalanan premium Indonesia menawarkan paket wisata eksklusif.",
+        address: {
+            "@type": "PostalAddress",
+            streetAddress: "The Premium Tower, Lt. 42",
+            addressLocality: "Jakarta",
+            addressRegion: "DKI Jakarta",
+            addressCountry: "ID",
+        },
+        contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+62-838-3935-0200",
+            contactType: "customer service",
+        }
+    };
+
     return (
         <html lang="id" className={`${cinzel.variable} ${poppins.variable} ${inter.variable}`}>
             <head>
@@ -111,10 +104,10 @@ export default function RootLayout({ children }) {
             <body className="antialiased flex flex-col min-h-screen bg-slate-50 text-slate-800">
                 {/* Google Analytics */}
                 <GoogleAnalytics GA_MEASUREMENT_ID={GA_ID} />
-                {/* Skip to content — keyboard accessibility */}
+                {/* Skip to content */}
                 <a
                     href="#main-content"
-                    className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-sky-500 focus:text-white focus:px-6 focus:py-3 focus:rounded-xl focus:font-semibold focus:shadow-lg transition-all"
+                    className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue focus:text-white focus:px-6 focus:py-3 focus:rounded-xl focus:font-semibold focus:shadow-lg transition-all"
                 >
                     Lewati ke konten utama
                 </a>
