@@ -16,9 +16,6 @@ export default function Hero() {
   // Background moves at 40% of scroll speed — classic depth parallax
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
 
-  // Scroll indicator fades out as user begins to scroll
-  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
-
   return (
     <section
       ref={heroRef}
@@ -89,31 +86,6 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-
-      {/* Scroll Indicator — fades out as user scrolls */}
-      <motion.div
-        style={{ opacity: scrollIndicatorOpacity }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
-        aria-hidden="true"
-      >
-        <div
-          className="flex flex-col items-center gap-4 animate-fade-up"
-          style={{ animationDelay: "1.2s" }}
-        >
-          <span className="text-[0.65rem] tracking-[0.3em] uppercase text-white/60 font-poppins">
-            Scroll
-          </span>
-          <div className="w-px h-12 bg-white/20 relative overflow-hidden">
-            <div
-              className="absolute top-0 left-0 w-full h-1/2 bg-white animate-fade-down"
-              style={{
-                animationIterationCount: "infinite",
-                animationDuration: "2s",
-              }}
-            />
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }
