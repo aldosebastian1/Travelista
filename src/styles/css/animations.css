@@ -84,7 +84,7 @@
 }
 
 .delay-2 {
-  animation-delay: 0.30s;
+  animation-delay: 0.3s;
 }
 
 .delay-3 {
@@ -92,7 +92,7 @@
 }
 
 .delay-4 {
-  animation-delay: 0.60s;
+  animation-delay: 0.6s;
 }
 
 .delay-5 {
@@ -103,7 +103,6 @@
    REDUCED MOTION SUPPORT
    ==================================================== */
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {

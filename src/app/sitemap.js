@@ -1,22 +1,58 @@
-import { travelPackages } from "../constants";
-
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
+import { BASE_URL, SITE_LAST_MODIFIED } from "../lib/site-config";
+import { getTravelPackages } from "../services/travelService";
 
 export default function sitemap() {
-    const destinations = travelPackages.map((pkg) => ({
-        url: `${BASE_URL}/destination/${pkg.id}`,
-        lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: 0.8,
-    }));
+  const travelPackages = getTravelPackages();
+  const siteLastModified = new Date(SITE_LAST_MODIFIED);
 
-    return [
-        {
-            url: BASE_URL,
-            lastModified: new Date(),
-            changeFrequency: "daily",
-            priority: 1,
-        },
-        ...destinations,
-    ];
+  const resolveLastModified = (value) => {
+    const parsedDate = value ? new Date(value) : siteLastModified;
+
+    return Number.isNaN(parsedDate.getTime()) ? siteLastModified : parsedDate;
+  };
+
+  const staticPages = [
+    {
+      url: `${BASE_URL}/about`,
+      lastModified: siteLastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/packages`,
+      lastModified: siteLastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/testimonials`,
+      lastModified: siteLastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${BASE_URL}/destination`,
+      lastModified: siteLastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+  ];
+
+  const destinations = travelPackages.map((pkg) => ({
+    url: `${BASE_URL}/destination/${pkg.id}`,
+    lastModified: resolveLastModified(pkg.updatedAt),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
+  return [
+    {
+      url: BASE_URL,
+      lastModified: siteLastModified,
+      changeFrequency: "daily",
+      priority: 1,
+    },
+    ...staticPages,
+    ...destinations,
+  ];
 }
