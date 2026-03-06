@@ -32,10 +32,7 @@ export default function NotFound() {
           <Link href="/" className="btn-primary">
             Kembali ke Beranda
           </Link>
-          <Link
-            href="/destination"
-            className="btn-outline text-white border-white/30 hover:border-blue hover:text-blue"
-          >
+          <Link href="/destination" className="btn-outline btn-outline-inverse">
             Lihat Destinasi
             <ArrowRight size={16} aria-hidden="true" />
           </Link>

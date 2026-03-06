@@ -12,8 +12,8 @@ export default function Error({ error, reset }) {
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6 text-center">
-      <div className="max-w-md w-full bg-white p-8 rounded-[8px] shadow-sm border border-slate-100 flex flex-col items-center">
-        <div className="w-16 h-16 bg-red-50 text-red-500 rounded-[8px] flex items-center justify-center mb-6">
+      <div className="max-w-md w-full surface-card p-8 shadow-sm flex flex-col items-center">
+        <div className="w-16 h-16 bg-red-50 text-red-500 rounded-lg flex items-center justify-center mb-6">
           <AlertCircle size={32} />
         </div>
         <h2 className="font-cinzel text-2xl font-light text-slate-900 mb-2">
@@ -24,13 +24,10 @@ export default function Error({ error, reset }) {
           lagi.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-          <button
-            onClick={() => reset()}
-            className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-[8px] transition-colors"
-          >
+          <button onClick={() => reset()} className="btn-outline btn-outline-slate">
             Coba Lagi
           </button>
-          <Link href="/" className="btn-primary px-6 py-3 text-xs">
+          <Link href="/" className="btn-primary">
             Kembali ke Beranda
           </Link>
         </div>

@@ -48,7 +48,7 @@ export default function DestinationCard({
         </div>
       </div>
 
-      <div className="p-8 flex-1 flex flex-col">
+      <div className="p-5 md:p-8 flex-1 flex flex-col">
         <h3
           className="text-2xl font-light leading-snug mb-2 transition-colors duration-500 group-hover:text-blue"
           style={{ fontFamily: "var(--font-cinzel)" }}

@@ -17,7 +17,7 @@ export default function PackagesPage() {
   return (
     <div className="min-h-screen bg-slate-50 pt-20">
       {/* Header — Cinematic Minimalist */}
-      <div className="bg-noir pt-32 pb-24 px-6 relative overflow-hidden">
+      <div className="bg-noir pt-20 pb-12 md:pt-32 md:pb-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-blue/5 blur-3xl" aria-hidden="true" />
         <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
           <span className="section-label text-blue">Portofolio Perjalanan</span>
@@ -44,7 +44,7 @@ export default function PackagesPage() {
         </div>
 
         {/* Packages list — Luxury Magazine Layout */}
-        <div className="space-y-20">
+        <div className="space-y-12 md:space-y-20">
           {sorted.map((pkg, index) => {
             const isEven = index % 2 === 0;
             return (
@@ -73,7 +73,7 @@ export default function PackagesPage() {
                     <span className="section-label text-blue mb-4">
                       {pkg.location} • {pkg.category}
                     </span>
-                    <h2 className="font-cinzel text-4xl lg:text-5xl font-light text-slate-900 mb-6 leading-tight transition-colors duration-500 group-hover:text-blue">
+                    <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl font-light text-slate-900 mb-6 leading-tight transition-colors duration-500 group-hover:text-blue">
                       {pkg.name}
                     </h2>
                     <div className="w-12 h-px bg-blue mb-8"></div>
@@ -99,9 +99,7 @@ export default function PackagesPage() {
                       <span className="block text-[0.7rem] uppercase tracking-[0.2em] text-slate-400 mb-2">
                         Investasi Perjalanan
                       </span>
-                      <span className="font-cinzel text-3xl text-slate-900 font-light">
-                        {pkg.price}
-                      </span>
+                      <span className="font-cinzel text-3xl font-light text-blue">{pkg.price}</span>
                     </div>
                     <Link
                       href={`/destination/${pkg.id}`}

@@ -7,7 +7,7 @@ export default function TestimonialsSection() {
   const testimonials = getTestimonials();
 
   return (
-    <section aria-labelledby="testimonials-heading" className="bg-transparent py-32 px-6">
+    <section aria-labelledby="testimonials-heading" className="bg-transparent py-16 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="section-label">Jurnal Klien</span>
@@ -23,11 +23,11 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 md:mb-20">
           {testimonials.map((t) => (
             <article
               key={t.id}
-              className="bg-white border border-slate-200 p-8 flex flex-col gap-6"
+              className="bg-white border border-slate-200 p-5 md:p-8 flex flex-col gap-6"
               aria-label={`Kesaksian dari ${t.name}`}
             >
               <div className="flex gap-1" aria-label={`${t.rating} bintang`}>
@@ -63,11 +63,8 @@ export default function TestimonialsSection() {
           ))}
         </div>
 
-        <div className="flex justify-center flex-wrap gap-4 focus:outline-none">
-          <Link
-            href="/testimonials"
-            className="btn-outline text-slate-900 border-slate-300 hover:border-blue hover:text-blue"
-          >
+        <div className="flex justify-center flex-wrap gap-4">
+          <Link href="/testimonials" className="btn-outline btn-outline-slate">
             Baca Seluruh Jurnal
             <ArrowRight size={16} aria-hidden="true" />
           </Link>

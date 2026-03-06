@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-noir text-slate-300">
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-12 grid grid-cols-1 md:grid-cols-12 gap-16 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-6 pt-12 md:pt-24 pb-12 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-8">
         {/* Brand Column */}
         <div className="md:col-span-5">
           <Link href="/" className="inline-block mb-8 group" aria-label="Travelista beranda">
@@ -41,7 +41,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Travelista di ${label}`}
-                className="text-slate-400 transition-colors duration-500 hover:text-blue"
+                className="text-slate-400 transition-colors duration-500 hover:text-blue p-3 -m-3"
               >
                 <Icon size={18} strokeWidth={1.5} aria-hidden="true" />
               </a>

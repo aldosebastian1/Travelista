@@ -50,15 +50,7 @@
   );
   --gradient-card: linear-gradient(180deg, transparent 50%, rgba(10, 10, 10, 0.92) 100%);
 
-  /* === Elegant Shadow Tokens (Soft, diffused) === */
-  --shadow-elegant-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
-  --shadow-elegant-md: 0 8px 24px rgba(0, 0, 0, 0.06);
-  --shadow-elegant-lg: 0 16px 40px rgba(0, 0, 0, 0.08);
-  --shadow-blue-glow: 0 8px 32px rgba(20, 131, 176, 0.15);
-  /* Very subtle */
-
   /* === Custom Easing Curves (Smooth, deliberate) === */
-  --ease-cinematic: cubic-bezier(0.22, 0.68, 0, 1.2);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 

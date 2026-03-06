@@ -84,8 +84,8 @@ export default function Navbar() {
   return (
     <nav
       aria-label="Navigasi utama"
-      className={`fixed w-full z-50 transition-all duration-700 ${
-        scrolled ? "glass-dark py-4" : "bg-transparent py-6"
+      className={`fixed w-full z-50 py-4 transition-all duration-700 ${
+        pathname === "/" && !scrolled ? "bg-transparent" : "glass-dark"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -185,7 +185,7 @@ export default function Navbar() {
               <Link
                 key={label}
                 href={href}
-                className="block py-3 text-sm tracking-widest uppercase transition-all duration-500 hover:text-white"
+                className="block py-4 text-sm tracking-widest uppercase transition-all duration-500 hover:text-white"
                 style={{
                   color: isActive ? "#1483b0" : "rgba(255,255,255,0.8)",
                   fontFamily: "var(--font-poppins)",

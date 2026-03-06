@@ -13,9 +13,9 @@ export default function Home() {
       <section
         id="destinasi"
         aria-labelledby="destinations-heading"
-        className="py-32 px-6 max-w-7xl mx-auto"
+        className="py-16 md:py-32 px-6 max-w-7xl mx-auto"
       >
-        <div className="flex flex-col items-center text-center mb-24">
+        <div className="flex flex-col items-center text-center mb-12 md:mb-24">
           <span className="section-label">Kurasi Perjalanan</span>
           <h2
             id="destinations-heading"
@@ -45,7 +45,7 @@ export default function Home() {
       {/* CTA Banner — Minimalist Luxury */}
       <section
         aria-labelledby="cta-heading"
-        className="py-32 px-6 bg-noir text-center relative overflow-hidden"
+        className="py-16 md:py-32 px-6 bg-noir text-center relative overflow-hidden"
       >
         {/* Subtle background glow */}
         <div
@@ -61,7 +61,7 @@ export default function Home() {
           >
             Rancang Perjalanan Anda
           </h2>
-          <p className="text-slate-400 text-lg md:text-xl font-light mb-16 leading-relaxed max-w-2xl">
+          <p className="text-slate-400 text-lg md:text-xl font-light mb-8 md:mb-16 leading-relaxed max-w-2xl">
             Biarkan travel designer kami menyusun rancang bangun liburan yang dikhususkan sepenuhnya
             untuk preferensi Anda. Konsultasi tanpa kompromi.
           </p>

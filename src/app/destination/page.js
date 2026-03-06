@@ -22,7 +22,7 @@ export default function DestinationListingPage() {
   return (
     <div className="min-h-screen bg-slate-50 pt-20">
       {/* Page Header — Luxury Minimalist */}
-      <div className="bg-noir pt-32 pb-24 px-6 relative overflow-hidden">
+      <div className="bg-noir pt-20 pb-12 md:pt-32 md:pb-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-blue/5 blur-3xl" aria-hidden="true" />
         <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
           <span className="section-label text-blue">Koleksi Eksklusif</span>
@@ -35,7 +35,7 @@ export default function DestinationListingPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-6 py-12 md:py-20">
         {/* Search + Sort Controls — Thin borders, elegant inputs */}
         <div className="flex flex-col md:flex-row gap-6 mb-12">
           <div className="relative flex-1">
@@ -83,7 +83,7 @@ export default function DestinationListingPage() {
 
         {/* Category Filter — Minimalist Text Links */}
         <div
-          className="flex gap-8 flex-wrap mb-16 border-b border-slate-200 pb-4"
+          className="flex gap-4 md:gap-8 flex-wrap mb-10 md:mb-16 border-b border-slate-200 pb-4"
           role="group"
           aria-label="Filter berdasarkan kategori"
         >
@@ -94,7 +94,7 @@ export default function DestinationListingPage() {
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 aria-pressed={isActive}
-                className={`text-[0.8rem] tracking-widest uppercase font-medium transition-all duration-500 relative pb-4 ${
+                className={`text-[0.8rem] tracking-widest uppercase font-medium transition-all duration-500 relative pt-3 pb-4 px-1 ${
                   isActive ? "text-blue" : "text-slate-500 hover:text-slate-900"
                 }`}
               >
@@ -120,7 +120,7 @@ export default function DestinationListingPage() {
                 setSearchQuery("");
                 setActiveCategory("all");
               }}
-              className="btn-outline text-slate-900 border-slate-300 hover:border-blue hover:text-blue"
+              className="btn-outline btn-outline-slate"
             >
               Hapus Filter
             </button>

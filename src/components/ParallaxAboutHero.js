@@ -24,7 +24,7 @@ export default function ParallaxAboutHero() {
   return (
     <div
       ref={heroRef}
-      className="relative h-[70vh] min-h-125 bg-noir overflow-hidden flex items-center justify-center"
+      className="relative h-[70vh] min-h-[480px] bg-noir overflow-hidden flex items-center justify-center"
     >
       {/* Parallax Background — opacity-40 applied to wrapper to preserve Framer Motion control */}
       <motion.div
@@ -50,7 +50,7 @@ export default function ParallaxAboutHero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 mt-16 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-6 pt-20 max-w-4xl mx-auto">
         <span className="section-label text-blue">Filosofi Travelista</span>
         <h1 className="font-cinzel text-4xl md:text-5xl lg:text-7xl font-light text-white mb-8">
           Redefinisi Kemewahan

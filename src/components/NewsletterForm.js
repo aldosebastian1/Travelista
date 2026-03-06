@@ -66,7 +66,7 @@ export default function NewsletterForm() {
         type="submit"
         aria-label="Kirim"
         disabled={isSubmitting}
-        className="absolute right-0 bottom-3 text-slate-300 hover:text-blue transition-colors duration-500 disabled:opacity-40 disabled:cursor-not-allowed"
+        className="absolute right-0 bottom-0 p-3 text-slate-300 hover:text-blue transition-colors duration-500 disabled:opacity-40 disabled:cursor-not-allowed"
       >
         <ArrowRight size={16} strokeWidth={1.5} />
       </button>

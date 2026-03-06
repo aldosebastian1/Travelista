@@ -4,7 +4,7 @@ export default function Loading() {
       <div className="flex flex-col items-center gap-4">
         <div
           className="w-12 h-12 border-4 border-slate-200 rounded-full animate-spin"
-          style={{ borderTopColor: "#1483b0" }}
+          style={{ borderTopColor: "var(--color-blue)" }}
         ></div>
         <p className="text-slate-500 font-medium animate-pulse">Memuat detail paket travel...</p>
       </div>

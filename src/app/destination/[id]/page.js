@@ -92,27 +92,9 @@ export default async function DestinationDetail({ params }) {
         ];
 
   const infoCards = [
-    {
-      Icon: Clock,
-      label: "Durasi",
-      value: pkg.duration,
-      bg: "bg-[#eef7fb]",
-      text: "text-[#1483b0]",
-    },
-    {
-      Icon: Calendar,
-      label: "Ketersediaan",
-      value: "Sepanjang Tahun",
-      bg: "bg-[#eef7fb]",
-      text: "text-[#1483b0]",
-    },
-    {
-      Icon: Star,
-      label: "Rating",
-      value: `${pkg.rating.toFixed(1)} / 5.0`,
-      bg: "bg-[#eef7fb]",
-      text: "text-[#1483b0]",
-    },
+    { Icon: Clock, label: "Durasi", value: pkg.duration },
+    { Icon: Calendar, label: "Ketersediaan", value: "Sepanjang Tahun" },
+    { Icon: Star, label: "Rating", value: `${pkg.rating.toFixed(1)} / 5.0` },
   ];
 
   return (
@@ -172,9 +154,9 @@ export default async function DestinationDetail({ params }) {
                 {pkg.name}
               </h1>
             </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-[8px] shrink-0">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shrink-0">
               <p className="text-slate-200 text-sm mb-1">Mulai dari</p>
-              <p className="text-3xl font-bold text-white">{pkg.price}</p>
+              <p className="font-cinzel text-3xl font-light text-blue">{pkg.price}</p>
             </div>
           </div>
         </div>
@@ -194,12 +176,12 @@ export default async function DestinationDetail({ params }) {
               premium kami.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {infoCards.map(({ Icon, label, value, bg, text }) => (
+              {infoCards.map(({ Icon, label, value }) => (
                 <div
                   key={label}
-                  className="bg-white p-5 rounded-[8px] shadow-sm border border-slate-100 flex items-center gap-4"
+                  className="bg-white p-5 rounded-lg shadow-sm border border-slate-100 flex items-center gap-4"
                 >
-                  <div className={`p-3 ${bg} ${text} rounded-[8px] shrink-0`}>
+                  <div className="p-3 surface-info-soft shrink-0">
                     <Icon size={24} aria-hidden="true" />
                   </div>
                   <div>
@@ -231,7 +213,7 @@ export default async function DestinationDetail({ params }) {
 
         {/* Booking Sidebar — Client Component */}
         <aside className="lg:col-span-1" aria-label="Form pemesanan">
-          <div className="bg-white p-8 rounded-[8px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 sticky top-32">
+          <div className="bg-white p-8 rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 sticky top-32">
             <h2 className="font-cinzel text-xl font-light text-slate-900 mb-6">Pesan Sekarang</h2>
             <BookingForm packageName={pkg.name} packagePrice={pkg.price} />
             <p className="text-center text-xs text-slate-500 mt-4 leading-relaxed">

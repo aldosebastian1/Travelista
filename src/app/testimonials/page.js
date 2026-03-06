@@ -15,7 +15,7 @@ export default function TestimonialsPage() {
   return (
     <div className="min-h-screen bg-slate-50 pt-20">
       {/* Header — Deep Noir */}
-      <div className="bg-noir pt-32 pb-24 px-6 relative overflow-hidden">
+      <div className="bg-noir pt-20 pb-12 md:pt-32 md:pb-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-blue/5 blur-3xl" aria-hidden="true" />
         <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
           <span className="section-label text-blue">Jurnal Klien</span>
@@ -31,7 +31,7 @@ export default function TestimonialsPage() {
 
       {/* Testimonials Grid — Elegant Typography Focus */}
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           {testimonials.map((t) => (
             <article
               key={t.id}
@@ -44,12 +44,12 @@ export default function TestimonialsPage() {
                 ))}
               </div>
 
-              <blockquote className="font-cinzel text-slate-800 text-xl font-light leading-relaxed mb-10 italic">
+              <blockquote className="text-slate-600 text-[0.95rem] leading-relaxed font-light italic mb-10">
                 &ldquo;{t.text}&rdquo;
               </blockquote>
 
               <div className="flex items-center gap-6">
-                <div className="relative w-12 h-12 overflow-hidden shrink-0 bg-slate-100">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 bg-slate-100">
                   <Image
                     src={t.avatar}
                     alt={`Foto profil ${t.name}`}
@@ -74,12 +74,12 @@ export default function TestimonialsPage() {
         </div>
 
         {/* Minimalist CTA */}
-        <div className="mt-32 text-center border-t border-slate-200 pt-24">
+        <div className="mt-16 md:mt-32 text-center border-t border-slate-200 pt-12 md:pt-24">
           <span className="section-label">Langkah Selanjutnya</span>
-          <h2 className="font-cinzel text-4xl lg:text-5xl font-light text-slate-900 mb-10">
+          <h2 className="font-cinzel text-3xl md:text-4xl lg:text-5xl font-light text-slate-900 mb-10">
             Tulis Kisah Perjalanan Anda
           </h2>
-          <div className="flex justify-center flex-wrap gap-4 focus:outline-none">
+          <div className="flex justify-center flex-wrap gap-4">
             <Link href="/destination" className="btn-primary">
               Eksplorasi Destinasi
             </Link>

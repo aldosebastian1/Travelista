@@ -70,11 +70,11 @@ export default function AboutPage() {
       <ParallaxAboutHero />
 
       {/* Story */}
-      <div className="max-w-7xl mx-auto px-6 py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-16 md:mb-32">
           <div>
             <span className="section-label">Warisan</span>
-            <h2 className="font-cinzel text-4xl md:text-5xl font-light text-slate-900 mb-10">
+            <h2 className="font-cinzel text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-10">
               Seni Perjalanan
             </h2>
             <p className="text-slate-600 leading-relaxed mb-6 font-light text-lg">
@@ -95,8 +95,8 @@ export default function AboutPage() {
               { value: "100+", label: "Destinasi Eksklusif" },
               { value: "24/7", label: "VIP Concierge" },
             ].map(({ value, label }) => (
-              <div key={label} className="bg-white p-8 border border-slate-200 text-center">
-                <p className="font-cinzel text-3xl font-light text-blue mb-2">{value}</p>
+              <div key={label} className="surface-card p-4 sm:p-8 text-center">
+                <p className="font-cinzel text-xl sm:text-3xl font-light text-blue mb-2">{value}</p>
                 <p className="text-slate-500 text-[0.75rem] uppercase tracking-widest font-medium">
                   {label}
                 </p>
@@ -106,26 +106,25 @@ export default function AboutPage() {
         </div>
 
         {/* Values */}
-        <div className="mb-32">
+        <div className="mb-16 md:mb-32">
           <div className="text-center mb-16">
             <span className="section-label">Pilar</span>
-            <h2 className="font-cinzel text-4xl md:text-5xl font-light text-slate-900">
+            <h2 className="font-cinzel text-4xl md:text-5xl lg:text-6xl font-light text-slate-900">
               Komitmen Kami
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map(({ Icon, title, desc }) => (
-              <div
-                key={title}
-                className="bg-white p-10 border border-slate-200 transition-all duration-500 hover:border-blue group"
-              >
+              <div key={title} className="luxury-card p-6 md:p-10 group">
                 <Icon
                   size={28}
                   className="text-blue mb-6 transition-transform duration-500 group-hover:scale-110"
                   strokeWidth={1}
                   aria-hidden="true"
                 />
-                <h3 className="font-cinzel font-light text-xl text-slate-900 mb-4">{title}</h3>
+                <h3 className="font-poppins font-medium text-xl tracking-[0.02em] text-slate-900 mb-4">
+                  {title}
+                </h3>
                 <p className="text-slate-500 text-[0.9rem] leading-relaxed font-light">{desc}</p>
               </div>
             ))}
@@ -133,14 +132,14 @@ export default function AboutPage() {
         </div>
 
         {/* Team */}
-        <div className="mb-32">
+        <div className="mb-16 md:mb-32">
           <div className="text-center mb-16">
             <span className="section-label">Ekspertise</span>
-            <h2 className="font-cinzel text-4xl md:text-5xl font-light text-slate-900">
+            <h2 className="font-cinzel text-4xl md:text-5xl lg:text-6xl font-light text-slate-900">
               Travel Designers
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             {teamMembers.map((member) => (
               <div key={member.name} className="text-center group">
                 <div className="relative w-48 h-48 mx-auto mb-6 bg-slate-100 overflow-hidden">
@@ -166,18 +165,15 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <div className="bg-noir p-20 text-center relative overflow-hidden">
+        <div className="bg-noir p-8 md:p-14 lg:p-20 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-blue/5 blur-3xl" aria-hidden="true" />
           <div className="relative z-10">
             <span className="section-label text-blue">Konsultasi Pribadi</span>
-            <h2 className="font-cinzel text-4xl md:text-5xl font-light text-white mb-8">
+            <h2 className="font-cinzel text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8">
               Diskusikan Visi Perjalanan Anda
             </h2>
             <div className="flex justify-center mt-12">
-              <a
-                href="mailto:concierge@travelista.id"
-                className="btn-outline text-white border-white/30 hover:border-blue hover:text-blue"
-              >
+              <a href="mailto:concierge@travelista.id" className="btn-outline btn-outline-inverse">
                 Hubungi Kami
               </a>
             </div>

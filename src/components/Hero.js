@@ -20,7 +20,7 @@ export default function Hero() {
     <section
       ref={heroRef}
       aria-labelledby="hero-heading"
-      className="relative h-screen min-h-175 w-full flex items-center overflow-hidden"
+      className="relative h-screen min-h-[600px] w-full flex items-center overflow-hidden"
     >
       {/* Parallax Background — extends beyond section bounds to allow movement */}
       <motion.div
